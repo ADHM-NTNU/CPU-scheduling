@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class PreemptivePriority extends Scheduler {
   private int processesCompleted = 0;
-  private ArrayList<Process> processes = new ArrayList<>();
+  private final ArrayList<Process> processes = new ArrayList<>();
   private int currentTime = 0;
   private Process currentProcess = null;
 
@@ -58,8 +58,8 @@ public class PreemptivePriority extends Scheduler {
 
       if (currentProcess.getRemainingTime() == 0) {
         processesCompleted++;
-        double turnaroundTime = currentTime - currentProcess.getArrivalTime();
-        double waitingTime = turnaroundTime - currentProcess.getBurstTime();
+        int turnaroundTime = currentTime - currentProcess.getArrivalTime();
+        int waitingTime = turnaroundTime - currentProcess.getBurstTime();
         totalWaitingTime += waitingTime;
         totalTurnaroundTime += turnaroundTime;
       }
