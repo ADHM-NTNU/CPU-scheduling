@@ -5,7 +5,6 @@ import no.ntnu.IDATA2305.g8.entities.Process;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
  * Class that represents a First Come First Serve scheduler.
@@ -16,7 +15,7 @@ public class FCFS extends Scheduler {
   private double totalWaitingTime = 0;
   private double totalTurnaroundTime = 0;
   public FCFS(List<Process> processes) {
-    processes.sort(Comparator.comparingDouble(Process::getArrivalTime));
+    processes.sort(Comparator.comparingInt(Process::getArrivalTime));
     this.processes.addAll(processes);
   }
 
@@ -32,6 +31,7 @@ public class FCFS extends Scheduler {
       double turnaroundTime = currentTime - process.getArrivalTime();
       totalTurnaroundTime += turnaroundTime;
     }
+    System.out.println("Statistics for First Come First Serve:");
     System.out.println("Average waiting time: " + totalWaitingTime / processes.size());
     System.out.println("Average turnaround time: " + totalTurnaroundTime / processes.size());
   }
