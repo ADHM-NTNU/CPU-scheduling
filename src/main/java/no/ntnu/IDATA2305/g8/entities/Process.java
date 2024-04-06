@@ -5,13 +5,10 @@ package no.ntnu.IDATA2305.g8.entities;
  * Has methods for executing the process as well as methods for getting the different variables and a string representation of the process.
  */
 public class Process {
-  double pId;
-  double initBurstTime;
-  double burstTime;
-  double arrivalTime;
-  double waitingTime = 0;
-  double completionTime = 0;
-  double turnaroundTime = 0;
+  private double pId;
+  private double initBurstTime;
+  private double burstTime;
+  private double arrivalTime;
 
   /**
    * Constructor for the Process class.
@@ -27,9 +24,17 @@ public class Process {
     this.arrivalTime = arrivalTime;
   }
 
-  /**
-   * Method for executing the process.
-   */
+  public double getpId() {
+    return pId;
+  }
+
+  public double getBurstTime() {
+    return burstTime;
+  }
+
+  public double getArrivalTime() {
+    return arrivalTime;
+  }
 
 }
 
