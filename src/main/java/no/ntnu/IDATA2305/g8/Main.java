@@ -16,6 +16,7 @@ public class Main {
    */
   public static void main(String[] args) {
     ArrayList<Process> processes = new ArrayList<>();
+    ArrayList<Process> processes2 = new ArrayList<>();
     processes.add(new Process(1, 13, 0, 3));
     processes.add(new Process(2, 7, 1, 2));
     processes.add(new Process(3, 3, 5, 1));
@@ -26,7 +27,12 @@ public class Main {
 
     System.out.println();
 
-    Scheduler scheduler2 = new FCFS(processes);
+    processes2.add(new Process(1, 13, 0));
+    processes2.add(new Process(2, 7, 1));
+    processes2.add(new Process(3, 3, 5));
+    processes2.add(new Process(4, 6, 2));
+
+    Scheduler scheduler2 = new FCFS(processes2);
     scheduler2.execute();
   }
 }
