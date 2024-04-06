@@ -9,10 +9,12 @@ import java.util.ArrayList;
 
 public class Main {
 
+  /**
+   * Main method that starts the simulation.
+   * Creates a list of processes and schedules them using the Preemptive Priority and FCFS algorithms.
+   * @param args The arguments passed to the program.
+   */
   public static void main(String[] args) {
-//    TODO: Add code to parse input and start the simulation
-//    Maybe use args like <schedulerName> <burstTime> <arrivalTime> <burstTime> <arrivalTime> <burstTime> <arrivalTime>
-//    Where each pair of burstTime and arrivalTime represents a process
     ArrayList<Process> processes = new ArrayList<>();
     processes.add(new Process(1, 13, 0, 3));
     processes.add(new Process(2, 7, 1, 2));
@@ -29,6 +31,8 @@ public class Main {
   }
 }
 
+
+// Manual calculation of the Preemptive Priority algorithm:
 // p1: -1, p2: -4, p3: -3, p2: -3, p1: -12, p4: -6
 // p1: 12, p2: 3, p3: 0, p2: 0, p1: 0, p4: 0
 
