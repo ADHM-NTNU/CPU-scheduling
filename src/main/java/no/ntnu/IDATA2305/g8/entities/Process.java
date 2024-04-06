@@ -6,7 +6,6 @@ package no.ntnu.IDATA2305.g8.entities;
  */
 public class Process {
   private double pId;
-  private double initBurstTime;
   private double burstTime;
   private double arrivalTime;
 
@@ -19,7 +18,6 @@ public class Process {
    */
   public Process(double pId, double burstTime, double arrivalTime) {
     this.pId = pId;
-    this.initBurstTime = burstTime;
     this.burstTime = burstTime;
     this.arrivalTime = arrivalTime;
   }
