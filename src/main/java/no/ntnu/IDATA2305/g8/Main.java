@@ -21,5 +21,24 @@ public class Main {
 
     Scheduler scheduler = new PreemptivePriority(processes);
     scheduler.execute();
+
+    System.out.println();
+
+    Scheduler scheduler2 = new FCFS(processes);
+    scheduler2.execute();
   }
 }
+
+// p1: -1, p2: -4, p3: -3, p2: -3, p1: -12, p4: -6
+// p1: 12, p2: 3, p3: 0, p2: 0, p1: 0, p4: 0
+
+// p1 waiting: 4 + 3 + 3 = 10
+// p2 waiting: 3
+// p3 waiting: 0
+// p4 waiting: 3 + 3 + 3 + 12 = 21
+
+// p1 turnaround: 10 + 13 = 23
+// p2 turnaround: 3 + 7 = 10
+// p3 turnaround: 0 + 3 = 3
+// p4 turnaround: 21 + 6 = 27
+

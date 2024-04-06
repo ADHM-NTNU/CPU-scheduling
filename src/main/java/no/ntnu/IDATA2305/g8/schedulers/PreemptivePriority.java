@@ -18,8 +18,8 @@ public class PreemptivePriority extends Scheduler {
 
   @Override
   public void execute() {
-    int totalWaitingTime = 0;
-    int totalTurnaroundTime = 0;
+    double totalWaitingTime = 0;
+    double totalTurnaroundTime = 0;
     while (processesCompleted < processes.size()) {
       final int time = currentTime;
       Process nextProcess = processes.stream()
@@ -41,14 +41,17 @@ public class PreemptivePriority extends Scheduler {
 
       if (currentProcess.getRemainingTime() == 0) {
         processesCompleted++;
-        int turnaroundTime = currentTime - currentProcess.getArrivalTime();
-        int waitingTime = turnaroundTime - currentProcess.getBurstTime();
+        double turnaroundTime = currentTime - currentProcess.getArrivalTime();
+        double waitingTime = turnaroundTime - currentProcess.getBurstTime();
         totalWaitingTime += waitingTime;
         totalTurnaroundTime += turnaroundTime;
       }
     }
+    double averageWaitingTime = totalWaitingTime / processes.size();
+    double averageTurnaroundTime = totalTurnaroundTime / processes.size();
 
-    System.out.println("Average waiting time: " + totalWaitingTime / processes.size());
-    System.out.println("Average turnaround time: " + totalTurnaroundTime / processes.size());
+    System.out.println("Statistics for Preemptive Priority:");
+    System.out.println("Average waiting time: " + averageWaitingTime);
+    System.out.println("Average turnaround time: " + averageTurnaroundTime);
   }
 }
